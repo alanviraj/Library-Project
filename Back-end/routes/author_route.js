@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
+/**Importing the model*/
 const authorModel = require('../models/Author');
 /**Importing the Send response helper*/
 const sendResponse = require('../utils/res_helper');
-const axios = require("axios");
-const moment = require('moment');
 
 /**Adding an author */
 router.post("/author", async (req, res) => {

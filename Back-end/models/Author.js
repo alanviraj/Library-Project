@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const authorSchema = new mongoose.Schema({
-    first_name: {
-        type: String,
-        required : true,
-    },
-    last_name: {
-      type: String,
-      required : true,
+  first_name: {
+    type: String,
+    required: true,
+  },
+  last_name: {
+    type: String,
+    required: true,
   },
 });
 
-module.exports = mongoose.model('author', authorSchema);
+module.exports = mongoose.model("author", authorSchema);

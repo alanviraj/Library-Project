@@ -16,9 +16,11 @@ app.use(bodyParser.json());
 
 //Routes - Viraj
 const author_routes = require('./routes/author_route');
+const book_routes = require('./routes/book_route');
 
 //Routes middleware - Viraj
 app.use(author_routes);
+app.use(book_routes);
 
 //Error Handler(After all middleware routes)
 app.use(errorHandler);
