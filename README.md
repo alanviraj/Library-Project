@@ -5,7 +5,9 @@ This is a Technical assessment for a new role. This project is developed using n
 
 I have deployed the website on the Vercel, here is the link: [https://library-project-orpin.vercel.app/](https://library-project-mox5s3j4l-alanviraj.vercel.app/).
 
-I have deployed the backend in the Render, here is the link: https://viraj-lib.onrender.com
+I have deployed the backend in the Render, here is the link: https://viraj-lib.onrender.com.
+
+I have included 2 test files as well, one in the frontend (author.test.js), and the other in the backend (api.test.js)
 
 1. Home Page
    
