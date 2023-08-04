@@ -400,7 +400,7 @@ function Books() {
       </Dialog>
       {/* Update book dialog */}
       <Dialog open={openEdit} onClose={handleCloseDialogEdit}>
-        <DialogTitle>Add Book</DialogTitle>
+        <DialogTitle>Edit Book</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Please enter the first name and last name of the author:
