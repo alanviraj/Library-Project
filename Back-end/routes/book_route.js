@@ -5,9 +5,11 @@ const bookModel = require('../models/Books');
 /**Importing the Send response helper*/
 const sendResponse = require('../utils/res_helper');
 
+
 /**Adding an book */
 router.post("/book", async (req, res) => {
     try {
+        console.log(req.body.name);
         const book = new bookModel({
             name: req.body.name,
             isbn: req.body.isbn,
@@ -53,7 +55,7 @@ router.put("/book/:_id", async (req, res) => {
 router.get("/book/:_id", async (req, res) => {
     try {
         const bookRes = await bookModel.findOne({ "_id": req.params._id });
-        sendResponse({ res: res, code: 200, status: 'Success', data: authorRes, msg: 'Retrieving book' });
+        sendResponse({ res: res, code: 200, status: 'Success', data: bookRes, msg: 'Retrieving book' });
     } catch (error) {
         console.log(error);
         sendResponse({ res: res, code: 400, status: 'Error', msg: error });

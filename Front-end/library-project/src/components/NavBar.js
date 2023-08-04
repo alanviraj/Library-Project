@@ -6,7 +6,7 @@ import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 function NavBar() {
   return (
     <React.Fragment>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ bgcolor: "black" }}>
         <Toolbar>
           <IconButton
             size="large"

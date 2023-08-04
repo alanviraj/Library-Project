@@ -19,9 +19,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { toast } from "react-toastify";
 import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
+import EditIcon from "@mui/icons-material/Edit";
 
 //Import components
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 function Author() {
   const [open, setOpen] = React.useState(false); // State to store open dialog variables
@@ -189,15 +191,36 @@ function Author() {
         }}
       >
         <Button
-          variant="contained"
-          color="primary"
-          startIcon={<ArrowBackIcon />}
+          color="inherit" // Use "inherit" to apply the default text color (black in your case)
           component={Link}
           to="/"
+          sx={{
+            bgcolor: "transparent", // Use "transparent" for transparent background
+            "&:hover": {
+              bgcolor: "#afb1b3", // Change to #393a3b on hover
+            },
+            "&:focus": {
+              bgcolor: "#afb1b3", // Change to #393a3b on focus
+            },
+            textTransform: "none", // Preserve the original case of the text
+          }}
         >
-          Go Back
+          <ArrowBackIcon sx={{ mr: 1 }} /> Go Back
         </Button>
-        <Button variant="contained" color="primary" onClick={handleOpenDialog}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleOpenDialog}
+          sx={{
+            bgcolor: "black",
+            "&:hover": {
+              bgcolor: "#393a3b", // Change to black on hover
+            },
+            "&:focus": {
+              bgcolor: "#393a3b", // Change to black on focus
+            },
+          }}
+        >
           Add Author
         </Button>
       </div>
@@ -215,25 +238,37 @@ function Author() {
             sx={{ maxWidth: 345, flex: "0 0 32%", marginTop: "14px" }}
           >
             <CardMedia
-              sx={{ height: 140 }}
-              image="/book.jpeg"
+              sx={{ height: 180 }}
+              image="/author.jpg"
               title="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 {`${author.first_name} ${author.last_name}`}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Read books, and increase and update your knowledge!
               </Typography>
             </CardContent>
-            <CardActions sx={{ display: "flex" }}>
+            <CardActions
+              sx={{
+                display: "flex",
+                justifyContent: "flex-end", // Align buttons to the right
+                gap: "4px", // Small gap between buttons
+              }}
+            >
               <Button
                 size="small"
-                style={{ marginLeft: "auto" }}
+                style={{
+                  marginLeft: "auto",
+                  color: "black",
+                  "&:hover": { color: "#393a3b" },
+                  textTransform: "none", // Remove any text transformation
+                  minWidth: 0, // Ensure the button doesn't have a minimum width
+                }}
                 onClick={() => handleViewDetails(author._id)}
               >
-                Click here to edit
+                <EditIcon />
               </Button>
             </CardActions>
           </Card>
@@ -265,10 +300,19 @@ function Author() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseDialog} color="primary">
+          <Button
+            onClick={handleCloseDialog}
+            color="primary"
+            style={{ color: "black", "&:hover": { color: "#393a3b" } }}
+          >
             Cancel
           </Button>
-          <Button onClick={handleSubmit} color="primary" disabled={loading}>
+          <Button
+            onClick={handleSubmit}
+            color="primary"
+            disabled={loading}
+            style={{ color: "black", "&:hover": { color: "#393a3b" } }}
+          >
             {loading ? (
               <ClipLoader color="primary" loading size={16} />
             ) : (
@@ -304,10 +348,19 @@ function Author() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseDialogEdit} color="primary">
+          <Button
+            onClick={handleCloseDialogEdit}
+            color="primary"
+            style={{ color: "black", "&:hover": { color: "#393a3b" } }}
+          >
             Cancel
           </Button>
-          <Button onClick={handleSubmitEdit} color="primary" disabled={loading}>
+          <Button
+            onClick={handleSubmitEdit}
+            color="primary"
+            disabled={loading}
+            style={{ color: "black", "&:hover": { color: "#393a3b" } }}
+          >
             {loading ? (
               <ClipLoader color="primary" loading size={16} />
             ) : (
@@ -316,6 +369,8 @@ function Author() {
           </Button>
         </DialogActions>
       </Dialog>
+      {/*navigation bar */}
+      <Footer />
     </div>
   );
 }
