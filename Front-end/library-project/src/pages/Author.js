@@ -59,7 +59,7 @@ function Author() {
     try {
       setLoading(true); // start the loading
       //POST request to save author
-      const response = await axios.post("http://localhost:5000/author", {
+      const response = await axios.post("https://viraj-lib.onrender.com/author", {
         first_name: first_name,
         last_name: last_name,
       });
@@ -99,7 +99,7 @@ function Author() {
     try {
       setLoading(true); // Start the loading
       //PUT request to edit author
-      const response = await axios.put(`http://localhost:5000/author/${id}`, {
+      const response = await axios.put(`https://viraj-lib.onrender.com/author/${id}`, {
         first_name: first_name,
         last_name: last_name,
       });
@@ -137,7 +137,7 @@ function Author() {
   //Method to handle the individual author detail
   const handleViewDetails = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:5000/author/${id}`);
+      const response = await axios.get(`https://viraj-lib.onrender.com/author/${id}`);
       setFirstName(response.data.data.first_name); // Store author details in state
       setLastName(response.data.data.last_name); // Store author details in state
       setId(response.data.data._id); // Store author details in state
@@ -161,7 +161,7 @@ function Author() {
   // Function to fetch authors from the backend API
   const fetchAuthors = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/author");
+      const response = await axios.get("https://viraj-lib.onrender.com/author");
       setAuthors(response.data.data); // Store authors in state
     } catch (error) {
       console.error("Error fetching authors:", error);

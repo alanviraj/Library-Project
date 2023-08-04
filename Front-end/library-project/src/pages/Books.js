@@ -73,7 +73,7 @@ function Books() {
     try {
       setLoading(true); // start the loading
       //POST request to save author
-      const response = await axios.post("http://localhost:5000/book", {
+      const response = await axios.post("https://viraj-lib.onrender.com/book", {
         name: name,
         isbn: isbn,
         author: author,
@@ -113,13 +113,13 @@ function Books() {
   //Method to handle the individual author detail
   const handleViewDetails = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:5000/book/${id}`);
+      const response = await axios.get(`https://viraj-lib.onrender.com/book/${id}`);
       setName(response.data.data.name); // Store author details in state
       setISBN(response.data.data.isbn); // Store author details in state
       setAuthor(response.data.data.author); // Store author details in state
       setId(response.data.data._id); // Store author details in state
       const response2 = await axios.get(
-        `http://localhost:5000/author/${response.data.data.author}`
+        `https://viraj-lib.onrender.com/author/${response.data.data.author}`
       );
       setAuthorName(
         `${response2.data.data.first_name} ${response2.data.data.last_name}`
@@ -131,7 +131,7 @@ function Books() {
   };
   const handleEditDetails = async (value) => {
     try {
-      const response = await axios.get(`http://localhost:5000/book/${value}`);
+      const response = await axios.get(`https://viraj-lib.onrender.com/book/${value}`);
       setName(response.data.data.name); // Store author details in state
       setISBN(response.data.data.isbn); // Store author details in state
       setAuthor(response.data.data.author); // Store author details in state
@@ -146,7 +146,7 @@ function Books() {
     try {
       setLoading(true); // start the loading
       //POST request to save author
-      const response = await axios.put(`http://localhost:5000/book/${id}`, {
+      const response = await axios.put(`https://viraj-lib.onrender.com/book/${id}`, {
         name: name,
         isbn: isbn,
         author: author,
@@ -200,7 +200,7 @@ function Books() {
   // Function to fetch authors from the backend API
   const fetchAuthors = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/author");
+      const response = await axios.get("https://viraj-lib.onrender.com/author");
       setAuthors(response.data.data); // Store authors in state
     } catch (error) {
       console.error("Error fetching authors:", error);
@@ -210,7 +210,7 @@ function Books() {
   // Function to fetch authors from the backend API
   const fetchBooks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/book");
+      const response = await axios.get("https://viraj-lib.onrender.com/book");
       console.log(response);
       setBooks(response.data.data); // Store authors in state
     } catch (error) {
