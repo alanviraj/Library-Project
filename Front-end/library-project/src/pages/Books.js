@@ -220,6 +220,7 @@ function Books() {
 
   React.useEffect(
     () => {
+      resetInputFields(); // Call the resetInputFields function initially
       fetchAuthors(); // Call the fetchAuthors function initially
       fetchBooks(); // Call the fetchAuthors function initially
     },
